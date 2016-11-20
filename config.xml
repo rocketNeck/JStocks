@@ -2,10 +2,10 @@
 <widget id="com.ionicframework.jstocks233565" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>JStocks</name>
   <description>
-        An Ionic Framework and Cordova project.
+        An app for Stocks
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+  <author email="rocketneck@gmail.com" href="futuretoolmaker.com">
+      Jesse Lawson
     </author>
   <content src="index.html"/>
   <access origin="*"/>
