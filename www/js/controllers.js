@@ -41,8 +41,38 @@ angular.module('JStocks.controllers', [])
   };
 })
 
+// .controller('MyStocksCtrl', ['$scope',
+//   function($scope) {
+//     $scope.myStocksArray = [
+//       {ticker: "AAPL"},
+//       {ticker: "GPRO"},
+//       {ticker: "FB"},
+//       {ticker: "NFLX"},
+//       {ticker: "TSLA"},
+//       {ticker: "BRK-A"},
+//       {ticker: "INTC"},
+//       {ticker: "MSFT"},
+//       {ticker: "GE"},
+//       {ticker: "BAC"},
+//       {ticker: "C"},
+//       {ticker: "T"},
+//
+//     ];
+// }])
+//
+// .controller('StockCtrl', ['$scope', '$stateParams', '$http', '$stockDataService',
+//   function($scope, $stateParams, stockDataService, $http) {
+//
+//     $scope.ticker = $stateParams.stockTicker;
+//     var promise = stockDataService.getPriceData($scope.ticker);
+//     promise.then(function(data){
+//       console.log(data);
+//     });
+// }]);
+
 .controller('MyStocksCtrl', ['$scope',
   function($scope) {
+
     $scope.myStocksArray = [
       {ticker: "AAPL"},
       {ticker: "GPRO"},
@@ -55,12 +85,38 @@ angular.module('JStocks.controllers', [])
       {ticker: "GE"},
       {ticker: "BAC"},
       {ticker: "C"},
-      {ticker: "T"},
-
+      {ticker: "T"}
     ];
+
 }])
 
-.controller('StockCtrl', ['$scope', '$stateParams',
-  function($scope, $stateParams) {
+
+
+.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService',
+  function($scope, $stateParams, stockDataService) {
+
     $scope.ticker = $stateParams.stockTicker;
-}]);
+
+    $scope.$on("$ionicView.afterEnter", function(){
+      getPriceData();
+      getDetailsData();
+    });
+
+    function getPriceData(){
+      var promise = stockDataService.getPriceData($scope.ticker);
+      promise.then(function(data){
+        console.log(data);
+      });
+    }
+
+    function getDetailsData(){
+      var promise = stockDataService.getDetailsData($scope.ticker);
+      promise.then(function(data){
+        console.log(data);
+      });
+    }
+
+
+}])
+
+;

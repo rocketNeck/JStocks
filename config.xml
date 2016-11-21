@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.jstocks233565" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>JStocks</name>
   <description>
-        An app for Stocks
+        An app for Stocks made with Ionic!
     </description>
   <author email="rocketneck@gmail.com" href="futuretoolmaker.com">
       Jesse Lawson
