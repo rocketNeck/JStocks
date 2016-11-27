@@ -1,6 +1,8 @@
 
 angular.module('JStocks', [
   'ionic',
+  'nvd3',
+  'nvChart',
   'JStocks.controllers',
   'JStocks.services',
   'JStocks.filters',
