@@ -41,35 +41,6 @@ angular.module('JStocks.controllers', [])
   };
 })
 
-// .controller('MyStocksCtrl', ['$scope',
-//   function($scope) {
-//     $scope.myStocksArray = [
-//       {ticker: "AAPL"},
-//       {ticker: "GPRO"},
-//       {ticker: "FB"},
-//       {ticker: "NFLX"},
-//       {ticker: "TSLA"},
-//       {ticker: "BRK-A"},
-//       {ticker: "INTC"},
-//       {ticker: "MSFT"},
-//       {ticker: "GE"},
-//       {ticker: "BAC"},
-//       {ticker: "C"},
-//       {ticker: "T"},
-//
-//     ];
-// }])
-//
-// .controller('StockCtrl', ['$scope', '$stateParams', '$http', '$stockDataService',
-//   function($scope, $stateParams, stockDataService, $http) {
-//
-//     $scope.ticker = $stateParams.stockTicker;
-//     var promise = stockDataService.getPriceData($scope.ticker);
-//     promise.then(function(data){
-//       console.log(data);
-//     });
-// }]);
-
 .controller('MyStocksCtrl', ['$scope',
   function($scope) {
 
@@ -87,16 +58,16 @@ angular.module('JStocks.controllers', [])
       {ticker: "C"},
       {ticker: "T"}
     ];
-
 }])
 
-
-
-.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService',
-  function($scope, $stateParams, stockDataService) {
+.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService', 'dateService',
+  function($scope, $stateParams, stockDataService, dateService) {
 
     $scope.ticker = $stateParams.stockTicker;
     $scope.chartView = 1;
+
+    console.log(dateService.currentDate());
+    console.log(dateService.oneYearAgoDate());
 
     $scope.$on("$ionicView.afterEnter", function(){
       getPriceData();
@@ -122,8 +93,5 @@ angular.module('JStocks.controllers', [])
         $scope.stockDetailsData = data;
       });
     }
-
-
 }])
-
 ;
